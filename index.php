@@ -26,9 +26,15 @@
                 </ul>
                 <div class="align-self-end">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/login.php">Entrar</a>
-                        </li>
+                        <?php if (!isset($_SESSION['usuarioLogado'])): ?>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/login.php">Entrar</a>
+                            </li>
+                        <?php else: ?>
+                            <li class="nav-item">
+                                <span class="text-white">Olá <?= $_SESSION['usuarioLogado']['nome']; ?></span>
+                            </li>
+                        <?php endif; ?>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">
                                 <svg class="bi" width="24" height="24" fill="currentColor">

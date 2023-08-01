@@ -27,9 +27,26 @@ function executarLogin()
     }
 
     // @TODO: Registrar usuário na sessão
+    $_SESSION['usuarioLogado'] = $linhaUsuario;
+
+    header('Location: /index.php');
+}
+
+function validaUsuarioJaLogado()
+{
+    $usuarioLogado = $_SESSION['usuarioLogado'] ?? null;
+    if ($usuarioLogado === null) {
+        return;
+    }
+
+    header('Location: /index.php');
 }
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 if ($requestMethod === 'POST') {
     executarLogin();
+}
+
+if ($requestMethod === 'GET') {
+    validaUsuarioJaLogado();
 }
