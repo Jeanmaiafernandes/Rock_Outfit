@@ -7,5 +7,36 @@
     transition: all 1s;
 }
 .carousel{
-    text-decoration: none;
+    max-width: 50%;
+    margin: 2rem auto;
+    
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    height: 100%;
+    padding-bottom: 4rem;
+}
+.card{
+    margin: 0 auto auto;
+    
+}
+footer{
+    height: 4rem;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(33, 37, 41);
+    font-size: 5px;
+}
+@media (max-width:999px) {
+    .products{
+        flex-direction: column;
+    }
+    .carousel{
+        max-width:100%;
+    }
 }
