@@ -6,3 +6,6 @@
 .navbar-collapse{
     transition: all 1s;
 }
+.carousel{
+    text-decoration: none;
+}
