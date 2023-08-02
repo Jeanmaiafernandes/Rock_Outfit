@@ -1,50 +1,88 @@
 <?php
-require_once('config.php');
-$con = connect();
-var_dump($_SERVER['REQUEST_METHOD']);
+    require_once ('app/bootstrap.php');
+    require_once ('app/acoes/login.php');
 
-// consultar o banco de dados pra obter o usuario com o email informado na request
-
-$requestMethod = $_SERVER['REQUEST_METHOD'];
-if ($requestMethod === 'POST') {
-    var_dump($_REQUEST);
-
-    $query = "SELECT email, senha FROM clientes WHERE email = '$_REQUEST'";
-    $result = $con->query($query);
-    if (!$result) {
-        die("Erro na consulta: ". $con->error);
-    }
-    echo '<pre>';
-    var_dump($result);
-    echo '</pre>';
-
-    if ($result < 0) {
-    }
-    // se a query nao retornar nada = nao tem usuario com esse email
-    // compara a senha que o usuario informou no login com a do registro do banco
-}
+    global $loginError;
 ?>
-
 <!doctype html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RockOutfit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rock Outfit</title>
+    <link rel="stylesheet" href="css/Home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Formulário de Cadastro</h1>
-    <form action="/login.php" method="post">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom shadow-sm mb-3">
+        <div class=" container">
+            <a class="navbar-brand" href="/"><strong>Rock Outfit</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/">Home</a>
+                    </li>
+                </ul>
+                <div class="align-self-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/login.php">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">
+                                <svg class="bi" width="24" height="24" fill="currentColor">
+                                    <use xlink:href="/bi.svg#cart3"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-        <br>
-        <input type="submit" value="Enviar">
-    </form>
-</body>
+        </div>
+    </nav>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <?php if ($loginError !== null): ?>
+                    <div class="text-bg-danger p-3">
+                        <?= $loginError; ?>
+                    </div>
+                <?php endif; ?>
+                <form method="post" action="/login.php">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">E-mail</label>
+                        <input name="email" type="email" class="form-control" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input name="senha" type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h6>©Rafael Santos Front-End</h6>
+        <h6>©Jean Maia Back-End</h6>
+        <h6>©Henrique Moura Dev JavaScript</h6>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    </body>
 </html>
