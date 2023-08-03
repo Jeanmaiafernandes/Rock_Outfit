@@ -20,7 +20,7 @@ function connectToDatabase()
         die('Erro ao conectar-se ao banco de dados: ' . $connection->connect_error);
     }
 }
-function executarQuery(string $query): mysqli_result
+function executarQuery(string $query): mysqli_result|bool
 {
     global $connection;
 
