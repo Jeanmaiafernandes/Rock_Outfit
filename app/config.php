@@ -1,5 +1,4 @@
 <?php
-
 global $globalConfiguration;
 $globalConfiguration = [
     'database' => [

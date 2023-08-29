@@ -32,6 +32,7 @@ function executarLogin()
     header('Location: /index.php');
 }
 
+// função de validar usuário logado
 function validaUsuarioJaLogado()
 {
     $usuarioLogado = $_SESSION['usuarioLogado'] ?? null;

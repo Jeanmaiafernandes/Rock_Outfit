@@ -29,9 +29,8 @@ hr{
     gap: 1rem;
 }
 .carousel{
-    max-width: 50%;
+    max-width: 70%;
     margin: 2rem auto;
-    
 }
 .products{
     display: flex;
@@ -47,7 +46,6 @@ hr{
 }
 .card{
     margin: 0 0 auto;
-    
 }
 span{
     color: #ffc107;

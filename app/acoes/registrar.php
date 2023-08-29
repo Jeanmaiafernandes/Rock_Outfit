@@ -34,7 +34,6 @@ function executarRegistro()
     }
 
 }
-
 function verificarConfirmacaoSenha(): bool
 {
     $confirmacao_senha = $_POST["confirmacao_senha"];
@@ -49,6 +48,7 @@ function verificarConfirmacaoSenha(): bool
     return true;
 }
 
+// função de verificar registro consultando banco de dados.
 function verificarRegistro(): bool {
     global $registrarError;
     $email = $_REQUEST['email'];
