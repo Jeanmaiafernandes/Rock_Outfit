@@ -28,7 +28,7 @@ function buscaSubCatalogo()
     $resultado = executarQuery($queryConsultaCategoria);
 
     if ($resultado->num_rows === 0) {
-        $categoriaError = 'Nenhuma categoria encontrado para o id informado.';
+        $categoriaError = 'Nenhuma subcategoria encontrado para o id informado.';
         return;
     }
 }

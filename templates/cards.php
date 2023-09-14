@@ -1,5 +1,5 @@
 <div class="cards">
-    <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem; height: 25rem;">
+    <div class="card shadow p-3 mb-5 bg-body rounded" style=" width: 18rem; height: 25rem;">
         <img src="https://cdnv2.moovin.com.br/backinblack/imagens/produtos/det/camiseta-metallica-ride-the-lightning-stamp-8b21feede8e56a3fa9cc19bfaf16ceb4.jpg" class="card-img-top" alt="https://cdnv2.moovin.com.br/backinblack/imagens/produtos/det/camiseta-metallica-ride-the-lightning-stamp-8b21feede8e56a3fa9cc19bfaf16ceb4.jpg">
         <div class="card-body">
             <h5 class="card-title">Camiseta Metallica</h5>

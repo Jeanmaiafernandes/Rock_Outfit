@@ -7,11 +7,12 @@
     transition: all 1s;
 }
 .nav-link{
-    
+    color: white;
 }
 hr{
     margin: 1rem 2rem;
 }
+
 .tittles{
     margin: auto;
 }
@@ -64,7 +65,7 @@ span{
     background-color: #ffc107 ;
 }
 .btn{
-    
+
 }
 footer{
     height: 4rem;

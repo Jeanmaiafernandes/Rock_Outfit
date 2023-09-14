@@ -26,12 +26,10 @@ require_once ('app/bootstrap.php');
             require_once('templates/carousel.php');
             ?>
         </div>
-
         <div class="products">
         <h1 class="tittles">
           Camisas <span>Rock and Roll</span> 
         </h1>
-
           <?php
             require_once ('templates/cards.php');
           ?>
